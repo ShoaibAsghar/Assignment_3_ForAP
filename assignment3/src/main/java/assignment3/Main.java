@@ -12,6 +12,8 @@ public class Main
 		System.out.println("Enter 3: For Viewing Match Words and its Frequency ");
 		System.out.println("Enter 4: For Searching a query - It should Display all the Files query found ");
 		System.out.println("Enter 5: For Exiting!  ");
+		System.out.println("Enter 5: For Exiting!  ");
+		System.out.println("Enter 5: For Exiting!  ");
 
 	}
 
