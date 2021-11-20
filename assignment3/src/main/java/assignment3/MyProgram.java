@@ -72,6 +72,43 @@ public class MyProgram {
 			break;
 		 }
 		 
+		 case 2:
+		 {
+		     Vector<String> vec_obj=new Vector<String>();
+		  
+		   try {
+        		      File myObj2 = new File(args[1]);
+        		      Scanner obj_reader2 = new Scanner(myObj2);
+        		      while (obj_reader2.hasNextLine()) 
+        		      {
+        		        String Line_data2 = obj_reader2.nextLine();
+        		        //tS.add(Line_data2);
+        		       // System.out.println(Line_data);
+        		        
+        		        String WordsArray[]= Line_data2.split(" ");
+        		        //traverse
+        		         for(String Word_arr:WordsArray)
+        		         {
+        		          //System.out.println(Word_arr);
+        		        	 vec_obj.add(Word_arr);
+        		         }
+        		         
+        		         
+        		      }
+        		      
+        		    System.out.println("Elements are: "+vec_obj);
+        		      obj_reader2.close(); 
+        		    } 
+        	   
+        	         catch (FileNotFoundException e) 
+        	         {
+        		      System.out.println("Error occur while creating file!");
+        		      e.printStackTrace();
+        		    }
+		   
+		   	 
+	      break;		 
+		 }
 		default:
 		{
 			System.out.println("You enter wrong choice! ");
