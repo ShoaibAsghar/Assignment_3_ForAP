@@ -1,12 +1,12 @@
 package assignment3;
+import java.util.*;
 
-public class BST {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Choose any option from the Following ");
-		System.out.println("Enter 5: For Exiting!  ");
-		System.out.println("Enter 5: For Exiting!  ");
-	}
+public class BST extends Thread
+{
+  public void run()
+  {
+    System.out.println("Displaying BST : ");	  
+  }
+	
 
 }
