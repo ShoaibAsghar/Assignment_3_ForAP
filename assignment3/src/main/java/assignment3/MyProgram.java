@@ -349,7 +349,7 @@ public class MyProgram extends Thread
 		 case 3:
 		 {
 			 //strArrayBst=new String [strsize];
-			 /*
+			 
 			 for(int l=0;l<k_size;l++)
   		      {
   		    	System.out.print(StrArray2[l]+",");
@@ -364,27 +364,31 @@ public class MyProgram extends Thread
 			 
 			 System.out.print(k_size+",");
 			 System.out.print(strsize+"?");
-			 */
 			 
-			 int count_var=1;
+			 
+			 int count_var=0;
 			 boolean Flg=false;
-			 
-		  for(int y=0;y<strsize;)
+			 int p=0;
+			 int freq=1;
+		  for(int y=0;y<k_size;)
 		  { 
-			 for(int z=0;z<k_size;)
-			 {
-			   if(strArrayBst[y].equals(StrArray2[z]))
+			  String str_input=StrArray2[y];
+			  String str_bst=strArrayBst[p];
+			   
+			   if(str_input.equals(str_bst))
 			   {
-				   Flg=true;
-				   y++;
+				   System.out.println("Words is macthed ! "+ str_input);   
+				   
+				   p++;
 				   count_var++;
 			   } 
+			   
 			   else 
 			   {
-				z++;   
+				y++;
+				
 			   }
 			   
-			 }
 			  
 		  }
 			 
@@ -393,6 +397,7 @@ public class MyProgram extends Thread
 			 
 	       break;		 
 		 }
+		 
 		default:
 		{
 			System.out.println("You enter wrong choice! ");
