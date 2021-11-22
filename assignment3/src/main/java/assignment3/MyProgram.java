@@ -83,6 +83,7 @@ public class MyProgram extends Thread
 		int counter=0;
 		int Length = args. length;
 		
+		
 		System.out.println();
 		System.out.println("The total number of files Passing is ! "+Length);
 		
@@ -113,6 +114,7 @@ public class MyProgram extends Thread
 	   // }	
 	    	//String strLen=
 	    	int strsize=0;
+	    	 int k_size=0;
 	        	try {
         		      File myObj = new File(args[0]);
         		      Scanner obj_reader = new Scanner(myObj);
@@ -133,8 +135,93 @@ public class MyProgram extends Thread
         		      e.printStackTrace();
         		    }
 		
-		       
-		 
+	    String [] strArrayBst=new String [strsize];   
+	    //int k_size=0;  
+	    String [] StrArray2=new String [200];
+	    
+	    try {
+ 		      File myObj = new File(args[0]);
+ 		      Scanner obj_reader = new Scanner(myObj);
+ 		      int i=0;
+ 		      while (obj_reader.hasNextLine()) 
+ 		      {
+ 		        String Line_data = obj_reader.nextLine();
+ 		        strArrayBst[i]=Line_data; 
+ 		        tS.add(Line_data);
+ 		        i++;
+ 		       // System.out.println(Line_data);
+ 		      }
+ 		      
+ 		     
+ 		      obj_reader.close(); 
+ 		  //    for(int j=0;j<strsize;j++)
+ 		    //  {
+ 		  //  	System.out.println(strArrayBst[j]);
+ 		    //  }
+ 		      
+ 		      
+ 		    } 
+ 	   
+ 	         catch (FileNotFoundException e) 
+ 	         {
+ 		      System.out.println("Error occur while creating file!");
+ 		      e.printStackTrace();
+ 		    }
+	    
+	    Vector<String> vec_obj=new Vector<String>();
+	    
+	    try {   
+		       int sizevec_str=0;
+		    // int k=0;
+		       //String [] StrArray2;
+		     //  String [] StrArray2=new String [200];
+		        for(int i=1;i<Length;i++)
+		        {   	 
+ 		      File myObj2 = new File(args[i]);
+ 		      Scanner obj_reader2 = new Scanner(myObj2);
+ 		      while (obj_reader2.hasNextLine()) 
+ 		      {
+ 		        String Line_data2 = obj_reader2.nextLine(); 
+ 		        //tS.add(Line_data2);
+ 		       // System.out.println(Line_data);
+ 		        
+ 		        String WordsArray[]= Line_data2.split(" ");
+ 		        
+ 		       // StrArray2[]=WordsArray[];
+ 		        //traverse
+ 		         for(String Word_arr:WordsArray)
+ 		         {
+ 		          //System.out.println(Word_arr);
+ 		        	 StrArray2[k_size]=Word_arr;
+ 		        	 vec_obj.add(Word_arr);
+ 		        	// System.out.println("1234"+ StrArray2[k]);
+ 		        	 k_size++;
+ 		        	         		         }
+ 		         
+ 		           
+ 		         
+ 		      }
+ 		   //   sizevec_str=StrArray2.length;
+ 		     // System.out.println(sizevec_str);
+ 		  //  System.out.println("Elements are in file : "+args[i]+"   "+vec_obj);
+ 		      obj_reader2.close(); 
+ 		      
+ 		    }
+		        
+		         //  for(int j=0;j<k_size;j++)
+		   		   //   {
+		   		    //	System.out.print(StrArray2[j]+",");
+		   		    //  }
+		         
+		      //   System.out.println();  
+		      //   System.out.println("Elements in Inputfiles : "+vec_obj);
+	         }
+ 	         catch (FileNotFoundException e) 
+ 	         {
+ 		      System.out.println("Error occur while creating file!");
+ 		      e.printStackTrace();
+ 		    }
+	    
 		System.out.println("Choose any option from the Following ");
 		System.out.println("Enter 1: For Displaying BST build from Vocabulary File ");
 		System.out.println("Enter 2: For Displaying Vector build from Input File ");
@@ -153,8 +240,8 @@ public class MyProgram extends Thread
 			 Thread t=new Thread();
 			 t.start(); 
 			 //strArrayBst[0]=" 10:00AM ";
-			 String [] strArrayBst=new String [strsize];
-			 
+			// String [] strArrayBst=new String [strsize];
+			 /*
 			 try {
    		      File myObj = new File(args[0]);
    		      Scanner obj_reader = new Scanner(myObj);
@@ -183,6 +270,7 @@ public class MyProgram extends Thread
    		      System.out.println("Error occur while creating file!");
    		      e.printStackTrace();
    		    }
+			 */
 			 
 			 for(String value : tS)
 			 { 
@@ -194,15 +282,16 @@ public class MyProgram extends Thread
 			break;
 		 }
 		 
-		 case 2:
+		 case 2: 
 		 {
+			 /*
 		     Vector<String> vec_obj=new Vector<String>();
 		  
 		   try {   
 			       int sizevec_str=0;
-			       int k=0;
+			    // int k=0;
 			       //String [] StrArray2;
-			       String [] StrArray2=new String [1000];
+			     //  String [] StrArray2=new String [200];
 			        for(int i=1;i<Length;i++)
 			        {   	 
         		      File myObj2 = new File(args[i]);
@@ -220,26 +309,28 @@ public class MyProgram extends Thread
         		         for(String Word_arr:WordsArray)
         		         {
         		          //System.out.println(Word_arr);
-        		        	 StrArray2[k]=Word_arr;
+        		        	 StrArray2[k_size]=Word_arr;
         		        	 vec_obj.add(Word_arr);
-        		        	 k++;
-        		         }
+        		        	// System.out.println("1234"+ StrArray2[k]);
+        		        	 k_size++;
+        		        	         		         }
         		         
         		           
         		         
         		      }
-        		      sizevec_str=StrArray2.length;
-        		      System.out.println(sizevec_str);
+        		   //   sizevec_str=StrArray2.length;
+        		     // System.out.println(sizevec_str);
         		  //  System.out.println("Elements are in file : "+args[i]+"   "+vec_obj);
         		      obj_reader2.close(); 
         		      
         		    }
 			        
-			          // for(int j=0;j<sizevec_str;j++)
-			   		    //  {
-			   		    	//System.out.println(StrArray2[j]);
-			   		     // }
-			        
+			           for(int j=0;j<k_size;j++)
+			   		      {
+			   		    	System.out.print(StrArray2[j]+",");
+			   		      }
+			         
+			         System.out.println();  
 			         System.out.println("Elements in Inputfiles : "+vec_obj);
 		         }
         	         catch (FileNotFoundException e) 
@@ -247,11 +338,61 @@ public class MyProgram extends Thread
         		      System.out.println("Error occur while creating file!");
         		      e.printStackTrace();
         		    }
-		      
+		   */
+			 
+		     System.out.println();  
+	         System.out.println("Elements in Inputfiles : "+vec_obj);
 		   	 
 	        break;		 
 		   }
 		 
+		 case 3:
+		 {
+			 //strArrayBst=new String [strsize];
+			 /*
+			 for(int l=0;l<k_size;l++)
+  		      {
+  		    	System.out.print(StrArray2[l]+",");
+  		      }
+			 System.out.println();
+			 System.out.println();
+			 for(int j=0;j<strsize;j++)
+  		      {
+  		    	System.out.print(strArrayBst[j]+",");
+  		      }
+			 
+			 
+			 System.out.print(k_size+",");
+			 System.out.print(strsize+"?");
+			 */
+			 
+			 int count_var=1;
+			 boolean Flg=false;
+			 
+		  for(int y=0;y<strsize;)
+		  { 
+			 for(int z=0;z<k_size;)
+			 {
+			   if(strArrayBst[y].equals(StrArray2[z]))
+			   {
+				   Flg=true;
+				   y++;
+				   count_var++;
+			   } 
+			   else 
+			   {
+				z++;   
+			   }
+			   
+			 }
+			  
+		  }
+			 
+		  System.out.println("counetr"+ count_var);
+			 
+			 
+	       break;		 
+		 }
 		default:
 		{
 			System.out.println("You enter wrong choice! ");
