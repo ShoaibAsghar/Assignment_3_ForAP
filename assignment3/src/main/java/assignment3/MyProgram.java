@@ -216,11 +216,11 @@ public class MyProgram extends Thread
    	    System.out.println("|                                                                                          |");
    	    System.out.println("|                            Choose any option from the Following!                         |");  
    	    System.out.println("|                                                                                          |");
-   	    System.out.println("|                 Enter 1: For Displaying BST build from Vocabulary File                   |");
+   	    System.out.println("|             Enter 1: For Displaying BST build from Vocabulary File                       |");
    	    System.out.println("|                                                                                          |");
-   	    System.out.println("|                 Enter 2: For Displaying Vector build from Input File                     |");
+   	    System.out.println("|             Enter 2: For Displaying Vector build from Input File                         |");
    	    System.out.println("|                                                                                          |");
-   	    System.out.println("|                 Enter 3: For Viewing Match Words and its Frequency                       |");
+   	    System.out.println("|             Enter 3: For Viewing Match Words and its Frequency                           |");
    	    System.out.println("|                                                                                          |");
    	    System.out.println("|             Enter 4: For Searching a query - It should Display all the Files query found |");
    	    System.out.println("|                                                                                          |");
@@ -290,44 +290,7 @@ public class MyProgram extends Thread
 			 System.out.print(strsize+"?");
 			 */
 			 
-			 /*
-			  
-			  int i;
-    int length=strlen(argv[1]);
-    cout<<"The Length of the string is: "<<length<<endl; 
-           
-    int freqt[30]={0};
-   
-    
-    for(i=0; i<length; i++)
-    {
-            
-      if(argv[1][i]>='a' && argv[1][i]<='z')
-      {
-         freqt[argv[1][i]-97]++;
-      }
-      
-      else if(argv[1][i]>='A' && argv[1][i]<='Z')
-      {
-         freqt[argv[1][i]-65]++;
-      }
-   }
-   
-   
-   cout<<endl;
-   cout<<"The Frequency of all characters in Entered string is : "<<endl;
-   for(i=0; i<30; i++)
-   {
-      
-      if(freqt[i]!= 0)
-      {
-          
-          cout<<char(i + 'a')<<"="<< freqt[i]<<endl;
-      }
-      
-      }
-			  
-			  */
+			
 			 
 			// int freqt[30]={0};
 			 
@@ -371,8 +334,31 @@ public class MyProgram extends Thread
 	         System.out.println("|------------------------------------------------------------------------------------------|");
 	         
 		//  System.out.println("counetr"+ count_var);
+	      //   int freqt[30]={0};
+	         int con=0;
+	         int [] freqt=new int [30];
+	         for(int a=0;a<strsize;a++)
+	         {
+	           for(int b=0;b<k_size;b++)
+	           {
+	        	   if(strArrayBst[a].equals(StrArray2[b]))
+				   {
+	        		   con++;
+				   }
+	        	   
+	           }
+	        	 freqt[a]=con;
+	        	 con=0;
+	         }
 			 
-			 
+	         System.out.println();
+	         System.out.println();
+	         
+	         for(int a=0;a<strsize;a++)
+	         {
+	        	 System.out.println("The frequency of word -> "+strArrayBst[a]+"  is -> "+freqt[a]);
+	         }
+	         
 	       break;		 
 		 }
 		 
