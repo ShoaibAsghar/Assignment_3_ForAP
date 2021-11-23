@@ -18,11 +18,34 @@ import java.lang.invoke.SwitchPoint;
 
 public class MyProgram extends Thread
 {
+	public class vocabulary extends Thread
+	{
+		public void run() 
+		  {
+		    System.out.println("Displaying BST from run thread : ");
+		    String filname1;
+		    filname1=strname;
+		    
+		  } 
+	}
+	
+	public class inputfile extends Thread
+	{
+		public void run() 
+		  {
+		    System.out.println("Displaying InputFile from run thread : ");
+		    String filname2;
+		    filname2=strname;
+		    
+		  } 
+	}
+	
 	public String strname;
 	
 	public void setstrname(String fname) 
 	 {
 		strname=fname;	 
+		
 	 }
 	 
 	 public String getstrname() 
@@ -30,12 +53,13 @@ public class MyProgram extends Thread
 		 return strname;
 	 }
 	 
+	 /*
 	public void run() 
 	  {
 	    System.out.println("Displaying BST from run thread : ");
 	    String filname;
 	    filname=strname;
-	    /*
+	    
 	     Vector<String> vec_obj=new Vector<String>();
 	    try {
 		      File myObj2 = new File(filname);
@@ -66,10 +90,10 @@ public class MyProgram extends Thread
 		      System.out.println("Error occur while creating file!");
 		      e.printStackTrace();
 		    }
-		    */
+		    
 	    
 	    
-	  }
+	  }*/
 	
  
 	public static void main(String[] args) throws InterruptedException 
@@ -90,15 +114,13 @@ public class MyProgram extends Thread
    	    System.out.println("|                                                            |");
    	    System.out.println("|                      Assignment                            |");
    	    System.out.println("|                                                            |");
-   	    System.out.println("|       The total number of files Passing is  ! "+Length+"   |");
+   	    System.out.println("|       The total number of files Passing is  ! "+Length+"            |");
    	    System.out.println("|                                                            |");
    	    System.out.println("|        The Names of the Passing files is !                 |");
    	    System.out.println("|                                                            |");
    	    System.out.println("|------------------------------------------------------------|");
    	    
-	//	System.out.println("The total number of files Passing is ! "+Length);
-		
-	//	System.out.println("The Names of the Passing files is ! ");
+	
 		
 		for(int i=0;i<Length;i++)
 		{
@@ -247,8 +269,8 @@ public class MyProgram extends Thread
 		 case 1:
 		 {
 			 
-			 Thread t=new Thread();
-			 t.start(); 
+			 vocabulary obj4 =obj.new vocabulary();
+			 obj4.start(); 
 			
 			 
 			 for(String value : tS)
@@ -264,14 +286,18 @@ public class MyProgram extends Thread
 		 case 2: 
 		 {
 			 
+			 inputfile obj3=obj.new inputfile();
+			 obj3.start(); 
 			 
 		     System.out.println();  
 		      
 		     System.out.println("|------------------------------------------------------------------------------------------|");
 		     System.out.println("|                                                                                          |"); 
-	         System.out.println("|                       Elements in Inputfiles : "+vec_obj+"                               |");
+	         System.out.println("|                       Elements in Inputfiles :                                           |");
 	         System.out.println("|                                                                                          |");  
 	         System.out.println("|------------------------------------------------------------------------------------------|");
+	         
+	         System.out.println("Elements-> "+vec_obj);
 		   	 
 	        break;		 
 		   }
@@ -280,30 +306,7 @@ public class MyProgram extends Thread
 		 {
 			
 			 
-			 //strArrayBst=new String [strsize];
-			 
-		/*	 
-			 for(int l=0;l<k_size;l++)
-  		      {
-  		    	System.out.print(StrArray2[l]+",");
-  		      }
-  		      
-			 System.out.println();
-			 System.out.println();
-			 for(int j=0;j<strsize;j++)
-  		      {
-  		    	System.out.print(strArrayBst[j]+",");
-  		      }
-			 
-			 
-			 System.out.print(k_size+",");
-			 System.out.print(strsize+"?");
-			 */
-			 
-			
-			 
-			// int freqt[30]={0};
-			 
+			 			 
 			 int count_var=0;
 			 boolean Flg=false;
 			 int p=0;
@@ -323,7 +326,7 @@ public class MyProgram extends Thread
 			         System.out.println("|                                                                                          |");  
 			         System.out.println("|------------------------------------------------------------------------------------------|");
 			         
-				  // System.out.println("Words is macthed ! "+ str_input);   
+				  
 				   
 				   p++;
 				   count_var++;
@@ -344,8 +347,7 @@ public class MyProgram extends Thread
 	         System.out.println("|                                                                                          |");  
 	         System.out.println("|------------------------------------------------------------------------------------------|");
 	         
-		//  System.out.println("counetr"+ count_var);
-	      //   int freqt[30]={0};
+		
 	         int con=0;
 	         int [] freqt=new int [30];
 	         for(int a=0;a<strsize;a++)
@@ -377,8 +379,6 @@ public class MyProgram extends Thread
 		 {   
 			 String verify_file;
 			 
-			// System.out.println("Enter any file name you want to search! ");
-			// System.out.println("Program tell either it is present or not! ");
 			 
 			 System.out.println("|------------------------------------------------------------------------------------------|");
 		     System.out.println("|                                                                                          |"); 
@@ -411,7 +411,7 @@ public class MyProgram extends Thread
 		         System.out.println("|                                                                                          |");  
 		         System.out.println("|------------------------------------------------------------------------------------------|");
 		         
-				// System.out.println("This file is present! "); 
+				
 			 }
 			 
 			 
@@ -423,7 +423,7 @@ public class MyProgram extends Thread
 		         System.out.println("|                                                                                          |");  
 		         System.out.println("|------------------------------------------------------------------------------------------|");
 		         
-				// System.out.println("This file is not present! "); 
+				
 			 }
 			 
 			 String verify_word;
@@ -435,8 +435,6 @@ public class MyProgram extends Thread
 	         System.out.println("|------------------------------------------------------------------------------------------|");
 	         
 	         
-			// System.out.println("Enter Word to Search in Input file ! ");
-			// System.out.println("Program tell either it is present or not in Input file! ");
 			 
 			 
 			 Obj1 = new Scanner(System.in); 
@@ -455,7 +453,7 @@ public class MyProgram extends Thread
 				       System.out.println("|                                                                                          |");  
 				       System.out.println("|------------------------------------------------------------------------------------------|");
 				       check_flag=true;  
-					//   System.out.println("Words is macthed ! "+ str_verify);   
+					   
 					   
 					 	   
 				   } 
@@ -470,7 +468,7 @@ public class MyProgram extends Thread
 			       System.out.println("|                Entered Word does not  macthed in Input Files!                            |");
 			       System.out.println("|                                                                                          |");  
 			       System.out.println("|------------------------------------------------------------------------------------------|");
-				   //System.out.println("Entered Word does not  macthed in Input Files! ");  
+				    
 			   }
 			 
 		   break;	 
@@ -479,8 +477,7 @@ public class MyProgram extends Thread
 		 
 		 case 5:
 		 {
-			// System.out.println("You want to exit the Program ! ");	 
-			// System.out.println("so Program exit! ");
+			
 			 
 			 System.out.println("|------------------------------------------------------------------------------------------|");
 		     System.out.println("|                                                                                          |"); 
@@ -500,7 +497,7 @@ public class MyProgram extends Thread
 	         System.out.println("|                                                                                          |");  
 	         System.out.println("|------------------------------------------------------------------------------------------|");
 	         
-			 //System.out.println("You enter wrong choice! ");
+			
 	         
 			break;
 		}
@@ -514,7 +511,316 @@ public class MyProgram extends Thread
 	    catch (Exception e) 
 	    {
 			// TODO: handle exception
-	    	System.out.println("This is catch exception!");
+	    
+	    	//
+	    	System.out.println("|------------------------------------------------------------------------------------------|");
+	    	System.out.println("|-----------------------------You entered wrong choice !-----------------------------------|");
+	    	System.out.println("|-----------------------------Please entered correct choice!-------------------------------|");
+	    	System.out.println("|------------------------------------------------------------------------------------------|");
+	   	    System.out.println("|                                         MENU                                             |");
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|                            Choose any option from the Following!                         |");  
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|             Enter 1: For Displaying BST build from Vocabulary File                       |");
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|             Enter 2: For Displaying Vector build from Input File                         |");
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|             Enter 3: For Viewing Match Words and its Frequency                           |");
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|             Enter 4: For Searching a query - It should Display all the Files query found |");
+	   	    System.out.println("|                                                                                          |");
+	   	    System.out.println("|             Enter 5: For Exiting!                                                        |");   
+	    	System.out.println("|                                                                                          |");   
+	   	    System.out.println("|------------------------------------------------------------------------------------------|");
+	   	 
+			
+		    scanr=new Scanner(System.in);
+		    choice=scanr.nextInt();
+			
+		    while(choice<0 || choice>5)
+	   	       {
+		    	System.out.println("|------------------------------------------------------------------------------------------|");
+		    	System.out.println("|-----------------------------You entered wrong choice !-----------------------------------|");
+		    	System.out.println("|-----------------------------Please entered correct choice!-------------------------------|");
+		    	System.out.println("|------------------------------------------------------------------------------------------|");
+		   	    System.out.println("|                                         MENU                                             |");
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|                            Choose any option from the Following!                         |");  
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|             Enter 1: For Displaying BST build from Vocabulary File                       |");
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|             Enter 2: For Displaying Vector build from Input File                         |");
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|             Enter 3: For Viewing Match Words and its Frequency                           |");
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|             Enter 4: For Searching a query - It should Display all the Files query found |");
+		   	    System.out.println("|                                                                                          |");
+		   	    System.out.println("|             Enter 5: For Exiting!                                                        |");   
+		    	System.out.println("|                                                                                          |");   
+		   	    System.out.println("|------------------------------------------------------------------------------------------|");
+		   	 
+				
+			    scanr=new Scanner(System.in);
+			    choice=scanr.nextInt();
+		    	
+	   	       }
+		    
+			
+
+			switch (choice) 
+			{
+			 case 1:
+			 {
+				 
+				 vocabulary obj5 =obj.new vocabulary();
+				 obj5.start();
+				
+				 
+				 for(String value : tS)
+				 { 
+				   System.out.println();	 
+				   System.out.print("         "+ value + "     ");	 
+				   System.out.println();
+				 }
+				 
+				break;
+			 }
+			 
+			 case 2: 
+			 {
+				 
+				/* 
+			     System.out.println();  
+			      
+			     System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                       Elements in Inputfiles : "+vec_obj+"                               |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+			   	 */
+				 inputfile obj6=obj.new inputfile();
+				 obj6.start(); 
+				 
+				 System.out.println();  
+			      
+			     System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                       Elements in Inputfiles :                                           |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+		         
+		         System.out.println("Elements-> "+vec_obj);
+		         
+		        break;		 
+			   }
+			 
+			 case 3:
+			 {
+				
+				 
+				 int count_var=0;
+				 boolean Flg=false;
+				 int p=0;
+				 int freq=1;
+			  
+				 for(int y=0;y<k_size;)
+			     { 
+					 
+				  String str_input=StrArray2[y];
+				  String str_bst=strArrayBst[p];
+				   
+				   if(str_input.equals(str_bst))
+				   {
+					     System.out.println("|------------------------------------------------------------------------------------------|");
+					     System.out.println("|                                                                                          |"); 
+				         System.out.println("|                       Words is macthed ! : "+str_input+"                                 |");
+				         System.out.println("|                                                                                          |");  
+				         System.out.println("|------------------------------------------------------------------------------------------|");
+				         
+					  
+					   
+					   p++;
+					   count_var++;
+				   } 
+				   
+				   else 
+				   {
+					y++;
+					
+				   }
+				   
+				  
+			  }
+				          
+				 System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                 The Frequency of macthed Words is ! : "+count_var+"                      |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+		         
+			
+		         int con=0;
+		         int [] freqt=new int [30];
+		         for(int a=0;a<strsize;a++)
+		         {
+		           for(int b=0;b<k_size;b++)
+		           {
+		        	   if(strArrayBst[a].equals(StrArray2[b]))
+					   {
+		        		   con++;
+					   }
+		        	   
+		           }
+		        	 freqt[a]=con;
+		        	 con=0;
+		         }
+				 
+		         System.out.println();
+		         System.out.println();
+		         
+		         for(int a=0;a<strsize;a++)
+		         {
+		        	 System.out.println("The frequency of word -> "+strArrayBst[a]+"  is -> "+freqt[a]);
+		         }
+		         
+		       break;		 
+			 }
+			 
+			 case 4:
+			 {   
+				 String verify_file;
+				 
+				 
+				 System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                         Enter any file name you want to search!                          |");
+		         System.out.println("|                         Program tell either it is present or not!                        |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+				 
+				 Scanner Obj1 = new Scanner(System.in); 
+				 verify_file = Obj1.nextLine(); 
+				 boolean Flag_nam=false;
+				 
+				 
+				 for(int x=0;x<Length;x++)
+					{
+					   if(verify_file.equals(args[x]))
+					   {
+						   
+						   Flag_nam=true;
+					   }
+						
+					   
+					}
+				 
+				 if(Flag_nam==true)
+				 {
+					 System.out.println("|------------------------------------------------------------------------------------------|");
+				     System.out.println("|                                                                                          |"); 
+			         System.out.println("|                                   This file is present!                                  |");
+			         System.out.println("|                                                                                          |");  
+			         System.out.println("|------------------------------------------------------------------------------------------|");
+			         
+					
+				 }
+				 
+				 
+				 else if(Flag_nam==false)
+				 {
+					 System.out.println("|------------------------------------------------------------------------------------------|");
+				     System.out.println("|                                                                                          |"); 
+			         System.out.println("|                                   This file is not present!                              |");
+			         System.out.println("|                                                                                          |");  
+			         System.out.println("|------------------------------------------------------------------------------------------|");
+			         
+					
+				 }
+				 
+				 String verify_word;
+				 System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                           Enter Word to Search in Input file !                           |");
+		         System.out.println("|                           Program tell either it is present or not in Input file!        |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+		         
+		         
+				
+				 
+				 
+				 Obj1 = new Scanner(System.in); 
+				 verify_word = Obj1.nextLine(); 
+				 boolean check_flag=false;
+				 for(int l=0;l<k_size;l++)
+	 		      {
+					  String str_verify=StrArray2[l];
+					  
+					   
+					   if(verify_word.equals(str_verify))
+					   {
+						   System.out.println("|------------------------------------------------------------------------------------------|");
+						   System.out.println("|                                                                                          |"); 
+					       System.out.println("|                     Words is macthed ! : "+str_verify+"                                  |");
+					       System.out.println("|                                                                                          |");  
+					       System.out.println("|------------------------------------------------------------------------------------------|");
+					       check_flag=true;  
+					 
+						   
+						 	   
+					   } 
+					 
+	 		    	
+	 		      }
+				 
+				   if(check_flag==false)
+				   {
+					   System.out.println("|------------------------------------------------------------------------------------------|");
+					   System.out.println("|                                                                                          |"); 
+				       System.out.println("|                Entered Word does not  macthed in Input Files!                            |");
+				       System.out.println("|                                                                                          |");  
+				       System.out.println("|------------------------------------------------------------------------------------------|");
+					   
+				   }
+				 
+			   break;	 
+			   
+			 }
+			 
+			 case 5:
+			 {
+				
+				 
+				 System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                           You want to exit the Program !                                 |");
+		         System.out.println("|                           so Program exit!                                               |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+				 System.exit(0);
+			     
+			 }
+			 
+			default:
+			{
+				 System.out.println("|------------------------------------------------------------------------------------------|");
+			     System.out.println("|                                                                                          |"); 
+		         System.out.println("|                             You enter wrong choice!                                      |");
+		         System.out.println("|                                                                                          |");  
+		         System.out.println("|------------------------------------------------------------------------------------------|");
+		         
+				
+		         
+				break;
+			}
+			
+			}     
+			
+			//switch end
+	    	
+	    	
+	    	
+	    	//below is end of catch block
 		}
 	
 	}
