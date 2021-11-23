@@ -210,7 +210,12 @@ public class MyProgram extends Thread
  		      System.out.println("Error occur while creating file!");
  		      e.printStackTrace();
  		    }
+	    int choice;
+	    Scanner scanr=new Scanner(System.in);
 	    
+	    try 
+	    {
+	    	
 	    System.out.println("|------------------------------------------------------------------------------------------|");
    	    System.out.println("|                                         MENU                                             |");
    	    System.out.println("|                                                                                          |");
@@ -229,9 +234,14 @@ public class MyProgram extends Thread
    	    System.out.println("|------------------------------------------------------------------------------------------|");
    	 
 		
-		Scanner scanr=new Scanner(System.in);
-		int choice=scanr.nextInt();
+	    scanr=new Scanner(System.in);
+	    choice=scanr.nextInt();
 		
+		if(choice<0 || choice>5)
+   	      {
+   		    throw new Exception();
+   	      }
+
 		switch (choice) 
 		{
 		 case 1:
@@ -301,6 +311,7 @@ public class MyProgram extends Thread
 		  
 			 for(int y=0;y<k_size;)
 		     { 
+				 
 			  String str_input=StrArray2[y];
 			  String str_bst=strArrayBst[p];
 			   
@@ -430,7 +441,7 @@ public class MyProgram extends Thread
 			 
 			 Obj1 = new Scanner(System.in); 
 			 verify_word = Obj1.nextLine(); 
-			 
+			 boolean check_flag=false;
 			 for(int l=0;l<k_size;l++)
  		      {
 				  String str_verify=StrArray2[l];
@@ -443,7 +454,7 @@ public class MyProgram extends Thread
 				       System.out.println("|                     Words is macthed ! : "+str_verify+"                                  |");
 				       System.out.println("|                                                                                          |");  
 				       System.out.println("|------------------------------------------------------------------------------------------|");
-				         
+				       check_flag=true;  
 					//   System.out.println("Words is macthed ! "+ str_verify);   
 					   
 					 	   
@@ -452,7 +463,15 @@ public class MyProgram extends Thread
  		    	
  		      }
 			 
-			 
+			   if(check_flag==false)
+			   {
+				   System.out.println("|------------------------------------------------------------------------------------------|");
+				   System.out.println("|                                                                                          |"); 
+			       System.out.println("|                Entered Word does not  macthed in Input Files!                            |");
+			       System.out.println("|                                                                                          |");  
+			       System.out.println("|------------------------------------------------------------------------------------------|");
+				   //System.out.println("Entered Word does not  macthed in Input Files! ");  
+			   }
 			 
 		   break;	 
 		   
@@ -492,5 +511,13 @@ public class MyProgram extends Thread
 		
          
 	}
+	    catch (Exception e) 
+	    {
+			// TODO: handle exception
+	    	System.out.println("This is catch exception!");
+		}
+	
+	}
+	
 
 }
